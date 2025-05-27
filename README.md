@@ -128,6 +128,10 @@ Como estamos trabajando con un escenario multicontenedor docker, hay algunas pec
 tail -f /var/log/apache2/other_vhosts_access.log
 tail -n 50 /var/log/apache2/error.log
 ```
+
+![](images/2.png)
+
+
 **Mostrar los logs con paginación (para leer cómodamente)**
 
 Si el archivo es muy grande less o more:
@@ -262,6 +266,11 @@ sudo apt update
 sudo apt install fail2ban -y
 ```
 
+![](images/3.png)
+
+![](images/4.png)
+
+
 **2. Configurar Fail2Ban para Apache**
 
 Crear una copia del archivo de configuración predeterminado
@@ -269,6 +278,8 @@ Crear una copia del archivo de configuración predeterminado
 ```bash
 sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 ```
+
+![](images/5.png)
 
 Abrir el archivo de configuración:
 
@@ -285,10 +296,9 @@ logpath = /ruta-a docker-compose/docker-compose-lamp/logs/apache2/error.log
 maxretry = 5
 bantime = 3600
 ```
-![](images/lm8.png)
+![](images/6.png)
 
 Esto bloqueará una IP por 1 hora si realiza más de 5 intentos fallidos.
-
 
 
 **3. Reiniciar Fail2Ban para aplicar cambios**
@@ -297,7 +307,7 @@ Esto bloqueará una IP por 1 hora si realiza más de 5 intentos fallidos.
 sudo service fail2ban restart
 sudo systemctl enable fail2ban
 ```
-
+![](images/7.png)
 
 ### Configuración de Fail2Ban en un entorno LAMP con Docker
 
@@ -411,6 +421,8 @@ services:
       - ./config/fail2ban:/config
     network_mode: "host"
 ```
+
+![](images/8.png)
 
 ---
 
