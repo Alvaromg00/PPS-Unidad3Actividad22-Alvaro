@@ -564,6 +564,8 @@ sudo apt-get install apt-transport-https
 echo "deb [signed-by=/usr/share/keyrings/elasticsearch-keyring.gpg] https://artifacts.elastic.co/packages/9.x/apt stable main" | sudo tee /etc/apt/sources.list.d/elastic-9.x.list
 ```
 
+![](images/9.png)
+
 Nota: Si se desea una versión específica, cambiar 9.x por la versión deseada.
 
 
@@ -573,6 +575,8 @@ Nota: Si se desea una versión específica, cambiar 9.x por la versión deseada.
 sudo apt update
 sudo apt install elasticsearch logstash kibana -y
 ```
+
+![](images/10.png)
 
 **3. Iniciar y habilitar los servicios**
 
@@ -606,6 +610,9 @@ xpack.security.enabled: false
 xpack.security.http.ssl.enabled: false
 xpack.security.transport.ssl.enabled: false
 ```
+
+![](images/11.png)
+
 Reiniciar Elasticsearch
 
 ```bash
@@ -620,7 +627,9 @@ curl -X GET "http://localhost:9200"
 
 Si funciona correctamente, se debería ver una respuesta con información del servidor.
 
-![](images/lm9.png)
+![](images/12.png)
+
+![](images/13.png)
 
 
 **5. Configurar Logstash para Apache**
